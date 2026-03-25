@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Santos Vallenilla | Aseconsultores SV</title>
+  <link rel="icon" href="santos_vallenilla_icon.png" type="image/x-icon" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    :root {
+      --primary: #6a4c93;
+      --primary-light: #8a6dbd;
+      --bg-body: #faf9fd;
+      --bg-card: #ffffff;
+      --text-dark: #2d2b3a;
+      --text-light: #5a576e;
+      --white: #ffffff;
+      --shadow: rgba(106, 76, 147, 0.1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-body);
+      color: var(--text-dark);
+      line-height: 1.6;
+      text-align: justify;
+    }
+
+    /* ✅ Texto justificado en todos los párrafos */
+    p {
+      text-align: justify !important;
+      hyphens: none;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    header {
+      background: var(--primary);
+      padding: 1.2rem 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 10px var(--shadow);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      color: var(--white);
+    }
+
+    .logo img {
+      height: 50px;
+      object-fit: contain;
+    }
+
+    .logo span {
+      font-weight: 700;
+      font-size: 1.4rem;
+      color: var(--white);
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 1.5rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--white);
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #f5f3ff;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 4rem 5%;
+      background: var(--bg-card);
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: var(--primary);
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      max-width: 700px;
+      margin: 0 auto;
+      color: var(--text-light);
+      /* Sobrescribe justify para mantener centrado en hero */
+      text-align: justify;
+    }
+
+    .services {
+      padding: 4rem 0;
+      background: var(--bg-body);
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 2.5rem;
+      font-size: 2rem;
+      color: var(--primary);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      justify-items: center;
+    }
+
+    .service-card {
+      background: var(--bg-card);
+      padding: 2rem;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 4px 12px var(--shadow);
+      transition: transform 0.3s, box-shadow 0.3s;
+      width: 100%;
+      max-width: 300px;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 16px var(--shadow);
+    }
+
+    .service-icon {
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+
+    .service-card h3 {
+      margin-bottom: 0.8rem;
+      color: var(--text-dark);
+    }
+
+    /* ✅ Mantener centrado el texto dentro de las tarjetas */
+    .service-card p {
+      text-align: center;
+    }
+
+    .contact {
+      padding: 4rem 0;
+      background: var(--bg-body);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2.5rem;
+    }
+
+    .contact-info, .contact-form {
+      background: var(--bg-card);
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px var(--shadow);
+    }
+
+    .contact-info h3, .contact-form h3 {
+      margin-bottom: 1.2rem;
+      color: var(--primary);
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .contact-item i {
+      width: 36px;
+      height: 36px;
+      background: var(--primary-light);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 12px;
+    }
+
+    .contact-item a {
+      color: var(--text-dark);
+      text-decoration: none;
+    }
+
+    .contact-item a:hover {
+      color: var(--primary);
+    }
+
+    .qr-code {
+      text-align: center;
+      margin: 1.5rem 0;
+    }
+
+    .qr-code img {
+      max-width: 200px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px var(--shadow);
+      display: inline-block;
+    }
+
+    .form-group {
+      margin-bottom: 1rem;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.4rem;
+      font-weight: 600;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.8rem;
+      border: 1px solid #e0ddea;
+      border-radius: 8px;
+      font-size: 1rem;
+      background: #fcfbfe;
+    }
+
+    .form-group textarea {
+      height: 120px;
+      resize: vertical;
+    }
+
+    .btn {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 0.9rem 1.5rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-block;
+      transition: background 0.3s;
+      width: 100%;
+    }
+
+    .btn:hover {
+      background: var(--primary-light);
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      background: var(--text-dark);
+      color: white;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        flex-direction: column;
+        gap: 0.8rem;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: var(--primary);
+        padding: 1rem 0;
+        box-shadow: 0 4px 8px var(--shadow);
+        display: none;
+      }
+      nav ul.show {
+        display: flex;
+      }
+      .hero h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">
+      <img src="santos.vallenilla.@administrador.santosrvh_logo.png" alt="Logo Santos Vallenilla" onerror="this.style.display='none'; this.parentElement.innerHTML='<span>Santos Vallenilla</span>'" />
+    </div>
+    <nav>
+      <ul id="nav-menu">
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <h1>Asesores y Consultores SV</h1>
+  <p>Para que un negocio sea próspero se debe invertir más que esfuerzo y dedicación. Exige la ejecución de procesos robustos y estrategias constantes que le permitan tomar de decisiones acertadas para que el crecimiento del negocio sea una realidad.</p>
+  <br>
+  <p>Nuestra misión es simple: aportar dedicación y experiencia para su negocio se consolide y sea cada vez más retable. Nos integramos como su Partner Estratégico, asegurando que cada actividad se ejecute aumentando la generación de valor.</p>    
+  <a href="https://wa.me/58e162499925" class="btn" style="width: auto; margin-top: 1.5rem; display: inline-block;">
+        <i class="fab fa-whatsapp"></i> Consúltanos por WhatsApp
+      </a>
+    </div>
+  </section>
+
+  <section id="servicios" class="services">
+    <div class="container">
+      <h2 class="section-title">Nuestros Servicios</h2>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon"><i class="fas fa-building"></i></div>
+          <h3>Servicios Administrativos</h3>
+          <p>Gestión eficiente de procesos operativos y administrativos para tu empresa.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><i class="fas fa-chart-line"></i></div>>
+          <h3>Inteligencia de Negocios</h3>
+          <p>Análisis de datos para tomar decisiones estratégicas basadas en información real.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><i class="fas fa-file-invoice-dollar"></i></div>
+          <h3>Servicios Contables</h3>
+          <p>Contabilidad precisa, declaraciones fiscales y cumplimiento normativo.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><i class="fas fa-hand-holding-usd"></i></div>
+          <h3>Servicios Financieros</h3>
+          <p>Planificación financiera, flujo de caja y gestión de inversiones.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><i class="fas fa-search"></i></div>
+          <h3>Auditorías</h3>
+          <p>Revisiones internas y externas para garantizar transparencia y eficiencia.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><i class="fas fa-comments"></i></div>
+          <h3>Asesorías y Consultorías</h3>
+          <p>Orientación personalizada para el crecimiento y mejora de tu negocio.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><i class="fas fa-file-invoice"></i></div>
+          <h3>Facturación Digital</h3>
+          <p>Emisión, gestión y control de facturas electrónicas conforme a normativas vigentes en Venezuela.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><i class="fas fa-user-tie"></i></div>
+          <h3>Asesoría para Emprendedores y Personas</h3>
+          <p>Formalización de negocios, estructura legal y tributaria, planificación financiera, entre otros.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacto" class="contact">
+    <div class="container">
+      <h2 class="section-title">Contáctanos</h2>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <h3>Información de Contacto</h3>
+          <div class="contact-item">
+            <i class="fas fa-envelope"></i>
+            <a href="mailto:aseconsultores.sv@gmail.com">aseconsultores.sv@gmail.com</a>
+          </div>
+          <div class="contact-item">
+            <i class="fab fa-instagram"></i>
+            <a href="https://instagram.com/administrador.santosrvh" target="_blank">@administrador.santosrvh</a>
+          </div>
+          <div class="contact-item">
+            <i class="fab fa-whatsapp"></i>
+            <a href="https://wa.me/584162499925" target="_blank">+58 416-2499925</a>
+          </div>
+          <div class="qr-code">
+            <img src="santos_vallenilla.@administrador.santosrvh_qr.jpeg" alt="Escanea para contactar por WhatsApp">
+          </div>
+          <a href="https://wa.me/584162499925" class="btn">
+            <i class="fab fa-whatsapp"></i> Consulta por WhatsApp
+          </a>
+        </div>
+
+        <div class="contact-form">
+          <h3>Solicita Información</h3>
+          <form id="cotizacionForm">
+            <div class="form-group">
+              <label for="nombre">Nombre</label>
+              <input type="text" id="nombre" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" required>
+            </div>
+            <div class="form-group">
+              <label for="telefono">Teléfono (opcional)</label>
+              <input type="tel" id="telefono">
+            </div>
+            <div class="form-group">
+              <label for="mensaje">Mensaje</label>
+              <textarea id="mensaje" placeholder="¿En qué podemos ayudarte?" required></textarea>
+            </div>
+            <button type="submit" class="btn">Enviar Solicitud</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Santos Vallenilla. Todos los derechos reservados. Caracas, Venezuela.</p>
+  </footer>
+
+  <script>
+    document.getElementById('cotizacionForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('¡Gracias por tu mensaje! Pronto nos pondremos en contacto contigo.');
+      this.reset();
+    });
+  </script>
+
+</body>
+</html>
